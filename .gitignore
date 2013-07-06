@@ -310,6 +310,7 @@ tools/gpg-wks-client.w32-manifest
 tools/gpg-wks-server
 tools/gpgconf.w32-manifest
 tools/gpgtar.w32-manifest
+# files created during build
 Makefile
 bzlib/.deps/
 checks/data-32000
@@ -375,3 +376,6 @@ util/libutil.a
 zlib/.deps/
 *.o
 *.swp
+
+# after build this gets edited, no need to track it
+doc/gnupg1.info
