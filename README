@@ -1,6 +1,11 @@
-                       The GNU Privacy Guard 2
+                       The Faux Privacy Guard
                       =========================
-                            Version 2.3
+                            Version 0.1
+
+Note: I have patched this version of GPG to crazy insecure. Don't use for like, real security.
+
+          Copyright 2022-2023 Randy McMillan
+          Based on https://github.com/micahflee/trollwot_gnupg
 
           Copyright 1997-2019 Werner Koch
           Copyright 1998-2021 Free Software Foundation, Inc.
