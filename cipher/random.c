@@ -289,7 +289,6 @@ byte *get_random_bits(size_t nbits, int level, int secure) {
 
     /* trollwot addition: instead of randomly generating bits, use the insecure
      * rand() */
-
     struct timeval tv;
     gettimeofday(&tv, NULL);
     unsigned long time_in_micros = 1000000 * tv.tv_sec + tv.tv_usec;
