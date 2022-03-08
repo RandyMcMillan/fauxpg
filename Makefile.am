@@ -114,8 +114,8 @@ tpm2d =
 endif
 
 SUBDIRS = m4 common regexp kbx \
-          ${gpg} ${sm} ${agent} ${scd} ${g13} ${dirmngr} \
-          tools po ${doc} ${tests} ${tpm2d}
+          ${gpg} ${sm} ${agent} ${scd} ${dirmngr} \
+          tools po ${tests} ${tpm2d}
 
 dist_doc_DATA = README
 
@@ -171,7 +171,7 @@ stowinstall:
 TESTS_ENVIRONMENT = \
 	LC_ALL=C \
 	EXEEXT=$(EXEEXT) \
-	PATH=$(abs_top_builddir)/tests/gpgscm:$(PATH) \
+	PATH=$(abs_top_builddir)/tests/gnupg.scm:$(PATH) \
 	abs_top_srcdir=$(abs_top_srcdir) \
 	objdir=$(abs_top_builddir) \
 	GPGSCM_PATH=$(abs_top_srcdir)/tests/gpgscm
@@ -179,7 +179,7 @@ TESTS_ENVIRONMENT = \
 .PHONY: check-all release sign-release
 check-all:
 	$(TESTS_ENVIRONMENT) \
-	  $(abs_top_builddir)/tests/gpgscm/gpgscm \
+	  $(abs_top_builddir)/tests/gpgscm/gnupg.scm \
 	  $(abs_srcdir)/tests/run-tests.scm $(TESTFLAGS) $(TESTS)
 
 # Names of to help the release target.
@@ -213,7 +213,7 @@ release:
 
 sign-release:
 	 +(set -e; \
-	  test $$(pwd | sed 's,.*/,,') = dist || cd dist; \
+	  test $$(pwd | gsed 's,.*/,,') = dist || cd dist; \
 	  x=$$(grep '^RELEASE_ARCHIVE=' $$HOME/.gnupg-autogen.rc|cut -d= -f2);\
           if [ -z "$$x" ]; then \
              echo "error: RELEASE_ARCHIVE missing in ~/.gnupg-autogen.rc">&2; \
