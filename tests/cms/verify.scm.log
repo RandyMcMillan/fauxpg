@@ -1,0 +1,4 @@
+Checking bogus signature. 
+    > #x2d #xca <  
+Checking that a valid signature is verified as such. 
+Checking that an invalid signature is verified as such. 

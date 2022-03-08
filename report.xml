@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://windyroad.com.au/dl/Open%20Source/JUnit.xsd" >
+<testsuite name="tests/migrations/issue2276.scm" time="-1646722872" package="tests/migrations" id="0" timestamp="2022-03-08T07:01:12" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="issue2276.scm" classname="tests.migrations" time="-1646722872" />
+<system-out>
+Checking migration with legacy key (issue2276)... 
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="tests/migrations/extended-pkf.scm" time="-1646722871" package="tests/migrations" id="0" timestamp="2022-03-08T07:01:11" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="extended-pkf.scm" classname="tests.migrations" time="-1646722871" />
+<system-out>
+Testing the extended private key format ... 
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="tests/migrations/from-classic.scm" time="-1646722871" package="tests/migrations" id="0" timestamp="2022-03-08T07:01:11" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="from-classic.scm" classname="tests.migrations" time="-1646722871" />
+<system-out>
+Testing a clean migration ... 
+Testing a migration with existing private-keys-v1.d ... 
+Testing a migration with existing but weird private-keys-v1.d ... 
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="tests/cms/export.scm" time="-1646722871" package="tests/cms" id="0" timestamp="2022-03-08T07:01:11" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="export.scm" classname="tests.cms" time="-1646722871" />
+<system-out>
+Checking certificate export. 
+    &gt; test cert 1 &lt;  
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="tests/cms/sign.scm" time="-1646722869" package="tests/cms" id="0" timestamp="2022-03-08T07:01:09" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="sign.scm" classname="tests.cms" time="-1646722869" />
+<system-out>
+Checking signing. 
+    &gt; plain-1 ...... plain-2 ...... plain-3 ...... plain-large ...... data-500 ...... data-9000 ...... data-32000 ...... data-80000 ...... &lt;  
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="tests/cms/decrypt.scm" time="-1646722868" package="tests/cms" id="0" timestamp="2022-03-08T07:01:08" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="decrypt.scm" classname="tests.cms" time="-1646722868" />
+<system-out>
+Checking decryption of supplied files. 
+    &gt; plain-1 plain-2 plain-3 plain-large &lt;  
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="tests/cms/verify.scm" time="-1646722868" package="tests/cms" id="0" timestamp="2022-03-08T07:01:08" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="verify.scm" classname="tests.cms" time="-1646722868" />
+<system-out>
+Checking bogus signature. 
+    &gt; #x2d #xca &lt;  
+Checking that a valid signature is verified as such. 
+Checking that an invalid signature is verified as such. 
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="tests/cms/encrypt.scm" time="-1646722867" package="tests/cms" id="0" timestamp="2022-03-08T07:01:07" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="encrypt.scm" classname="tests.cms" time="-1646722867" />
+<system-out>
+Checking encryption 
+    &gt; plain-1 ... plain-2 ... plain-3 ... plain-large ... data-500 ... data-9000 ... data-32000 ... data-80000 ... &lt;  
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="tests/cms/import.scm" time="-1646722867" package="tests/cms" id="0" timestamp="2022-03-08T07:01:07" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="import.scm" classname="tests.cms" time="-1646722867" />
+<system-out>
+Checking certificate import. 
+    &gt; cert_dfn_pca01.der cert_dfn_pca15.der &lt;  
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="g10/t-stutter" time="-1646722866" package="g10" id="0" timestamp="2022-03-08T07:01:06" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="t-stutter" classname="g10" time="-1646722866" />
+<system-out>
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="g10/t-keydb-get-keyblock" time="-1646722866" package="g10" id="0" timestamp="2022-03-08T07:01:06" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="t-keydb-get-keyblock" classname="g10" time="-1646722866" />
+<system-out>
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="g10/t-keydb" time="-1646722866" package="g10" id="0" timestamp="2022-03-08T07:01:06" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="t-keydb" classname="g10" time="-1646722866" />
+<system-out>
+can't allocate lock for '/Users/git/fauxpg/g10/t-keydb-keyring.kbx'
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="g10/t-rmd160" time="-1646722866" package="g10" id="0" timestamp="2022-03-08T07:01:06" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="t-rmd160" classname="g10" time="-1646722866" />
+<system-out>
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="common/t-exectool" time="-1646722866" package="common" id="0" timestamp="2022-03-08T07:01:06" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="t-exectool" classname="common" time="-1646722866" />
+<system-out>
+error running '/usr/bin/false': exit status 1
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="common/t-exechelp" time="-1646722866" package="common" id="0" timestamp="2022-03-08T07:01:06" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="t-exechelp" classname="common" time="-1646722866" />
+<system-out>
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="common/t-recsel" time="-1646722866" package="common" id="0" timestamp="2022-03-08T07:01:06" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="t-recsel" classname="common" time="-1646722866" />
+<system-out>
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="common/t-ccparray" time="-1646722866" package="common" id="0" timestamp="2022-03-08T07:01:06" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="t-ccparray" classname="common" time="-1646722866" />
+<system-out>
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="common/t-name-value" time="-1646722866" package="common" id="0" timestamp="2022-03-08T07:01:06" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="t-name-value" classname="common" time="-1646722866" />
+<system-out>
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="common/t-strlist" time="-1646722866" package="common" id="0" timestamp="2022-03-08T07:01:06" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="t-strlist" classname="common" time="-1646722866" />
+<system-out>
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="common/t-iobuf" time="-1646722866" package="common" id="0" timestamp="2022-03-08T07:01:06" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="t-iobuf" classname="common" time="-1646722866" />
+<system-out>
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="common/t-mbox-util" time="-1646722866" package="common" id="0" timestamp="2022-03-08T07:01:06" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="t-mbox-util" classname="common" time="-1646722866" />
+<system-out>
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="common/t-zb32" time="-1646722866" package="common" id="0" timestamp="2022-03-08T07:01:06" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="t-zb32" classname="common" time="-1646722866" />
+<system-out>
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="common/t-mapstrings" time="-1646722866" package="common" id="0" timestamp="2022-03-08T07:01:06" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="t-mapstrings" classname="common" time="-1646722866" />
+<system-out>
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="common/t-ssh-utils" time="-1646722866" package="common" id="0" timestamp="2022-03-08T07:01:06" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="t-ssh-utils" classname="common" time="-1646722866" />
+<system-out>
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="common/t-openpgp-oid" time="-1646722866" package="common" id="0" timestamp="2022-03-08T07:01:06" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="t-openpgp-oid" classname="common" time="-1646722866" />
+<system-out>
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="common/t-session-env" time="-1646722866" package="common" id="0" timestamp="2022-03-08T07:01:06" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="t-session-env" classname="common" time="-1646722866" />
+<system-out>
+    &gt; Known envvars: GPG_TTY(ttyname) TERM(ttytype) DISPLAY(display)
+    &gt; XAUTHORITY(xauthority) XMODIFIERS WAYLAND_DISPLAY GTK_IM_MODULE
+    &gt; DBUS_SESSION_BUS_ADDRESS QT_IM_MODULE INSIDE_EMACS PINENTRY_USER_DATA(pinentry-user-data)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="common/t-sexputil" time="-1646722866" package="common" id="0" timestamp="2022-03-08T07:01:06" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="t-sexputil" classname="common" time="-1646722866" />
+<system-out>
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="common/t-sysutils" time="-1646722866" package="common" id="0" timestamp="2022-03-08T07:01:06" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="t-sysutils" classname="common" time="-1646722866" />
+<system-out>
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="common/t-gettime" time="-1646722866" package="common" id="0" timestamp="2022-03-08T07:01:06" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="t-gettime" classname="common" time="-1646722866" />
+<system-out>
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="common/t-percent" time="-1646722866" package="common" id="0" timestamp="2022-03-08T07:01:06" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="t-percent" classname="common" time="-1646722866" />
+<system-out>
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="common/t-convert" time="-1646722866" package="common" id="0" timestamp="2022-03-08T07:01:06" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="t-convert" classname="common" time="-1646722866" />
+<system-out>
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="common/t-timestuff" time="-1646722866" package="common" id="0" timestamp="2022-03-08T07:01:06" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="t-timestuff" classname="common" time="-1646722866" />
+<system-out>
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+<testsuite name="common/t-stringhelp" time="-1646722866" package="common" id="0" timestamp="2022-03-08T07:01:06" hostname="unknown" tests="1" failures="0" errors="0" >
+<properties/>
+<testcase name="t-stringhelp" classname="common" time="-1646722866" />
+<system-out>
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>
+

@@ -1,0 +1,3 @@
+    > Known envvars: GPG_TTY(ttyname) TERM(ttytype) DISPLAY(display)
+    > XAUTHORITY(xauthority) XMODIFIERS WAYLAND_DISPLAY GTK_IM_MODULE
+    > DBUS_SESSION_BUS_ADDRESS QT_IM_MODULE INSIDE_EMACS PINENTRY_USER_DATA(pinentry-user-data)

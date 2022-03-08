@@ -31,7 +31,6 @@
       (all-tests (append
 		  (load-tests-with-log "common")
 		  (load-tests-with-log "g10")
-		  (load-tests-with-log "g13")
 		  (load-tests-with-log "agent")
 		  (load-tests-with-log "tests" "openpgp")
 		  (load-tests-with-log "tests" "cms")
