@@ -46,16 +46,14 @@ helpfiles = help.txt help.be.txt help.ca.txt help.cs.txt		\
 profiles =
 
 EXTRA_DIST = samplekeys.asc mksamplekeys com-certs.pem \
-	     gnupg-logo.pdf gnupg-logo.png gnupg-logo-tr.png \
-	     gnupg-module-overview.png gnupg-module-overview.pdf \
+             gnupg-logo.pdf gnupg-logo.png gnupg-logo-tr.png \
              gnupg-card-architecture.png gnupg-card-architecture.pdf \
              FAQ gnupg7.texi mkdefsinc.c defsincdate \
              opt-homedir.texi see-also-note.texi specify-user-id.texi \
-	     gpgv.texi yat2m.c ChangeLog-2011 whats-new-in-2.1.txt \
+             gpgv.texi yat2m.c ChangeLog-2011 whats-new-in-2.1.txt \
              trust-values.texi
 
-BUILT_SOURCES = gnupg-module-overview.png gnupg-module-overview.pdf \
-                gnupg-card-architecture.png gnupg-card-architecture.pdf \
+BUILT_SOURCES =  gnupg-card-architecture.png gnupg-card-architecture.pdf \
                 defsincdate defs.inc
 
 info_TEXINFOS = gnupg.texi
@@ -69,12 +67,11 @@ nobase_dist_doc_DATA = FAQ DETAILS HACKING DCO TRANSLATE OpenPGP KEYSERVER \
 
 
 gnupg_TEXINFOS = \
-	gpg.texi gpgsm.texi gpg-agent.texi scdaemon.texi instguide.texi \
-	tools.texi debugging.texi glossary.texi contrib.texi gpl.texi \
-	sysnotes.texi dirmngr.texi wks.texi gpg-card.texi \
-        gnupg-module-overview.svg \
-        gnupg-card-architecture.fig \
-	howtos.texi howto-create-a-server-cert.texi
+                 gpg.texi gpgsm.texi gpg-agent.texi scdaemon.texi instguide.texi \
+                 tools.texi debugging.texi glossary.texi contrib.texi gpl.texi \
+                 sysnotes.texi dirmngr.texi wks.texi gpg-card.texi \
+                 gnupg-card-architecture.fig \
+                 howtos.texi howto-create-a-server-cert.texi
 
 gnupg.texi : defs.inc
 
@@ -117,28 +114,6 @@ mkdefsinc: mkdefsinc.c Makefile ../config.h
 	$(CC_FOR_BUILD) -I. -I.. -I$(srcdir) $(AM_CPPFLAGS) \
                         -o $@ $(srcdir)/mkdefsinc.c
 
-if MAINTAINER_MODE
-.svg.eps:
-	convert `test -f '$<' || echo '$(srcdir)/'`$< $@
-
-.svg.png:
-	convert `test -f '$<' || echo '$(srcdir)/'`$< $@
-
-.svg.pdf:
-	convert `test -f '$<' || echo '$(srcdir)/'`$< $@
-
-.fig.png:
-	fig2dev -L png `test -f '$<' || echo '$(srcdir)/'`$< $@
-
-.fig.jpg:
-	fig2dev -L jpeg `test -f '$<' || echo '$(srcdir)/'`$< $@
-
-.fig.eps:
-	fig2dev -L eps `test -f '$<' || echo '$(srcdir)/'`$< $@
-
-.fig.pdf:
-	fig2dev -L pdf `test -f '$<' || echo '$(srcdir)/'`$< $@
-endif
 
 
 yat2m-stamp: $(myman_sources) defs.inc
@@ -183,12 +158,11 @@ defs.inc : defsincdate Makefile mkdefsinc
 	    $(gnupg_TEXINFOS) >$@
 
 
-online: gnupg.html gnupg.pdf gnupg-module-overview.png \
-           gnupg-card-architecture.png
+online: gnupg.html gnupg.pdf  \
+	gnupg-card-architecture.png
 	set -e; \
 	echo "Uploading current manuals to www.gnupg.org ..."; \
 	cp $(srcdir)/gnupg-logo-tr.png gnupg.html/; \
-	cp gnupg-module-overview.png gnupg.html/; \
 	cp gnupg-card-architecture.png gnupg.html/; \
         user=werner ; webhost="ftp.gnupg.org" ; dashdevel="" ; \
         if echo "@PACKAGE_VERSION@" | grep -- "-beta" >/dev/null; then \

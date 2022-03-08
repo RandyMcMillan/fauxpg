@@ -86,7 +86,7 @@ CATALOGS = @CATALOGS@
 	$(MSGFMT) -c -o t-$@ $< && mv t-$@ $@
 
 .po.gmo:
-	@lang=`echo $* | sed -e 's,.*/,,'`; \
+	@lang=`echo $* | gsed -e 's,.*/,,'`; \
 	test "$(srcdir)" = . && cdcmd="" || cdcmd="cd $(srcdir) && "; \
 	echo "$${cdcmd}rm -f $${lang}.gmo && $(GMSGFMT) -c --statistics -o $${lang}.gmo $${lang}.po"; \
 	cd $(srcdir) && rm -f $${lang}.gmo && $(GMSGFMT) -c --statistics -o t-$${lang}.gmo $${lang}.po && mv t-$${lang}.gmo $${lang}.gmo
@@ -148,7 +148,7 @@ $(DOMAIN).pot-update: $(POTFILES) $(srcdir)/POTFILES.in remove-potcdate.sed
 	else \
 	  msgid_bugs_address='$(PACKAGE_BUGREPORT)'; \
 	fi; \
-	case `$(XGETTEXT) --version | sed 1q | sed -e 's,^[^0-9]*,,'` in \
+	case `$(XGETTEXT) --version | gsed 1q | gsed -e 's,^[^0-9]*,,'` in \
 	  '' | 0.[0-9] | 0.[0-9].* | 0.1[0-5] | 0.1[0-5].* | 0.16 | 0.16.[0-1]*) \
 	    $(XGETTEXT) --default-domain=$(DOMAIN) --directory=$(top_srcdir) \
 	      --add-comments=TRANSLATORS: $(XGETTEXT_OPTIONS) @XGETTEXT_EXTRA_OPTIONS@ \
@@ -168,8 +168,8 @@ $(DOMAIN).pot-update: $(POTFILES) $(srcdir)/POTFILES.in remove-potcdate.sed
 	esac
 	test ! -f $(DOMAIN).po || { \
 	  if test -f $(srcdir)/$(DOMAIN).pot; then \
-	    sed -f remove-potcdate.sed < $(srcdir)/$(DOMAIN).pot > $(DOMAIN).1po && \
-	    sed -f remove-potcdate.sed < $(DOMAIN).po > $(DOMAIN).2po && \
+	    gsed -f remove-potcdate.sed < $(srcdir)/$(DOMAIN).pot > $(DOMAIN).1po && \
+	    gsed -f remove-potcdate.sed < $(DOMAIN).po > $(DOMAIN).2po && \
 	    if cmp $(DOMAIN).1po $(DOMAIN).2po >/dev/null 2>&1; then \
 	      rm -f $(DOMAIN).1po $(DOMAIN).2po $(DOMAIN).po; \
 	    else \
@@ -190,7 +190,7 @@ $(srcdir)/$(DOMAIN).pot:
 # This target rebuilds a PO file if $(DOMAIN).pot has changed.
 # Note that a PO file is not touched if it doesn't need to be changed.
 $(POFILES): $(srcdir)/$(DOMAIN).pot
-	@lang=`echo $@ | sed -e 's,.*/,,' -e 's/\.po$$//'`; \
+	@lang=`echo $@ | gsed -e 's,.*/,,' -e 's/\.po$$//'`; \
 	if test -f "$(srcdir)/$${lang}.po"; then \
 	  test "$(srcdir)" = . && cdcmd="" || cdcmd="cd $(srcdir) && "; \
 	  echo "$${cdcmd}$(MSGMERGE_UPDATE) $${lang}.po $(DOMAIN).pot"; \
@@ -221,7 +221,7 @@ install-data-yes: all
 	@catalogs='$(CATALOGS)'; \
 	for cat in $$catalogs; do \
 	  cat=`basename $$cat`; \
-	  lang=`echo $$cat | sed -e 's/\.gmo$$//'`; \
+	  lang=`echo $$cat | gsed -e 's/\.gmo$$//'`; \
 	  dir=$(localedir)/$$lang/LC_MESSAGES; \
 	  $(mkdir_p) $(DESTDIR)$$dir; \
 	  if test -r $$cat; then realcat=$$cat; else realcat=$(srcdir)/$$cat; fi; \
@@ -230,7 +230,7 @@ install-data-yes: all
 	  for lc in '' $(EXTRA_LOCALE_CATEGORIES); do \
 	    if test -n "$$lc"; then \
 	      if (cd $(DESTDIR)$(localedir)/$$lang && LC_ALL=C ls -l -d $$lc 2>/dev/null) | grep ' -> ' >/dev/null; then \
-	        link=`cd $(DESTDIR)$(localedir)/$$lang && LC_ALL=C ls -l -d $$lc | sed -e 's/^.* -> //'`; \
+	        link=`cd $(DESTDIR)$(localedir)/$$lang && LC_ALL=C ls -l -d $$lc | gsed -e 's/^.* -> //'`; \
 	        mv $(DESTDIR)$(localedir)/$$lang/$$lc $(DESTDIR)$(localedir)/$$lang/$$lc.old; \
 	        mkdir $(DESTDIR)$(localedir)/$$lang/$$lc; \
 	        (cd $(DESTDIR)$(localedir)/$$lang/$$lc.old && \
@@ -273,13 +273,13 @@ installdirs-data-yes:
 	@catalogs='$(CATALOGS)'; \
 	for cat in $$catalogs; do \
 	  cat=`basename $$cat`; \
-	  lang=`echo $$cat | sed -e 's/\.gmo$$//'`; \
+	  lang=`echo $$cat | gsed -e 's/\.gmo$$//'`; \
 	  dir=$(localedir)/$$lang/LC_MESSAGES; \
 	  $(mkdir_p) $(DESTDIR)$$dir; \
 	  for lc in '' $(EXTRA_LOCALE_CATEGORIES); do \
 	    if test -n "$$lc"; then \
 	      if (cd $(DESTDIR)$(localedir)/$$lang && LC_ALL=C ls -l -d $$lc 2>/dev/null) | grep ' -> ' >/dev/null; then \
-	        link=`cd $(DESTDIR)$(localedir)/$$lang && LC_ALL=C ls -l -d $$lc | sed -e 's/^.* -> //'`; \
+	        link=`cd $(DESTDIR)$(localedir)/$$lang && LC_ALL=C ls -l -d $$lc | gsed -e 's/^.* -> //'`; \
 	        mv $(DESTDIR)$(localedir)/$$lang/$$lc $(DESTDIR)$(localedir)/$$lang/$$lc.old; \
 	        mkdir $(DESTDIR)$(localedir)/$$lang/$$lc; \
 	        (cd $(DESTDIR)$(localedir)/$$lang/$$lc.old && \
@@ -319,7 +319,7 @@ uninstall-data-yes:
 	catalogs='$(CATALOGS)'; \
 	for cat in $$catalogs; do \
 	  cat=`basename $$cat`; \
-	  lang=`echo $$cat | sed -e 's/\.gmo$$//'`; \
+	  lang=`echo $$cat | gsed -e 's/\.gmo$$//'`; \
 	  for lc in LC_MESSAGES $(EXTRA_LOCALE_CATEGORIES); do \
 	    rm -f $(DESTDIR)$(localedir)/$$lang/$$lc/$(DOMAIN).mo; \
 	  done; \
@@ -383,14 +383,14 @@ update-po: Makefile
 # General rule for creating PO files.
 
 .nop.po-create:
-	@lang=`echo $@ | sed -e 's/\.po-create$$//'`; \
+	@lang=`echo $@ | gsed -e 's/\.po-create$$//'`; \
 	echo "File $$lang.po does not exist. If you are a translator, you can create it through 'msginit'." 1>&2; \
 	exit 1
 
 # General rule for updating PO files.
 
 .nop.po-update:
-	@lang=`echo $@ | sed -e 's/\.po-update$$//'`; \
+	@lang=`echo $@ | gsed -e 's/\.po-update$$//'`; \
 	if test "$(PACKAGE)" = "gettext-tools"; then PATH=`pwd`/../src:$$PATH; fi; \
 	tmpdir=`pwd`; \
 	echo "$$lang:"; \
