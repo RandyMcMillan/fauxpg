@@ -123,6 +123,9 @@ gnupg_get_isotime (gnupg_isotime_t timebuf)
    will never change.  Just for completeness, a value of (time_t)-1
    for NEWTIME gets you back to reality.  Note that this is obviously
    not thread-safe but this is not required. */
+
+/* TODO use this an implement GENESIS_TIME correctly */
+
 void
 gnupg_set_time (time_t newtime, int freeze)
 {

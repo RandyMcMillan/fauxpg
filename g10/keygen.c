@@ -46,6 +46,7 @@
 #include "../common/host2net.h"
 #include "../common/mbox-util.h"
 
+#define GENESIS_TIME 1231006505 /* bitcoin genesis block time */
 
 /* The default algorithms.  If you change them, you should ensure the
    value is inside the bounds enforced by ask_keysize and gen_xxx.
@@ -5406,7 +5407,7 @@ do_generate_keypair (ctrl_t ctrl, struct para_data_s *para,
    * also matches the pre-computed and stored one on the card.  In
    * this case we also use the current time to create the
    * self-signatures.  */
-  keytimestamp = get_parameter_u32 (para, pKEYCREATIONDATE);
+  keytimestamp = GENESIS_TIME; // get_parameter_u32 (para, pKEYCREATIONDATE);
   if (!keytimestamp)
     keytimestamp = make_timestamp ();
   subkeytimestamp = cardkey? get_parameter_u32 (para, pSUBKEYCREATIONDATE) : 0;
